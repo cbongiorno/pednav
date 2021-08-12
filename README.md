@@ -18,17 +18,17 @@ python-igraph>=0.8.0
 
 ## DATA ###################
 
-DATA/graph_clusters_30m_bos.pk: 
+data/graph_clusters_30m_bos.pk: 
 It is a pickle igraph object with the pedestrian street network for Boston.
 g.vs["pos"] contains the lat,lon of the street intersections
 g.vs["ppos"] contains the projected lat,lon of the street intersection
 g.ws["weights"] contains the length in meters of the street
   
-DATA/graph_clusters_30m_sf.pk: 
+data/graph_clusters_30m_sf.pk: 
 It is a pickle igraph object with the pedestrian street network for San Francisco.
 
 
-DATA/Human_Paths_bos.pk:
+data/Human_Paths_bos.pk:
 It is a pickle of a dictionary containing a sample of the pedestrian paths for Boston.
 The keys are the path IDs, the values are the sequence of index intersections of the path.
 The index intersections are matched with graph_clusters_30m_bos.pk
@@ -40,13 +40,13 @@ The index intersections are matched with graph_clusters_30m_bos.pk
 import pickle as pk
 
 #####initialize the module with the street network
-nav = pednav.Navigation('DATA/graph_clusters_30m_bos.pk')
+nav = pednav.Navigation('data/graph_clusters_30m_bos.pk')
 
 #####noise parameter
 sigma = 0.7
 
 #####Load pedestrian paths
-with open('DATA/Human_Paths_bos.pk','rb') as handle:
+with open('data/Human_Paths_bos.pk','rb') as handle:
 
 	H = pk.load(handle)
 	
